@@ -10,7 +10,7 @@ namespace ABMArquitectura.Datos
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        private string CadenaConexion = @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"; //Local
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;

@@ -34,6 +34,13 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnProySalir = new System.Windows.Forms.Button();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroCatastral = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +67,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(416, 98);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(89, 31);
@@ -78,15 +85,26 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.TipoProyecto,
+            this.NroCatastral,
+            this.FechaInicio,
+            this.FechaFinal,
+            this.Cliente,
+            this.Estado});
             this.dataGridView1.Location = new System.Drawing.Point(19, 161);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(802, 278);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnProySalir
             // 
-            this.btnProySalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProySalir.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProySalir.Location = new System.Drawing.Point(732, 480);
             this.btnProySalir.Name = "btnProySalir";
             this.btnProySalir.Size = new System.Drawing.Size(89, 31);
@@ -94,6 +112,51 @@
             this.btnProySalir.Text = "Salir";
             this.btnProySalir.UseVisualStyleBackColor = true;
             this.btnProySalir.Click += new System.EventHandler(this.btnProySalir_Click);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 90;
+            // 
+            // TipoProyecto
+            // 
+            this.TipoProyecto.HeaderText = "Tipo de proyecto";
+            this.TipoProyecto.Name = "TipoProyecto";
+            this.TipoProyecto.ReadOnly = true;
+            // 
+            // NroCatastral
+            // 
+            this.NroCatastral.HeaderText = "Número catastral";
+            this.NroCatastral.Name = "NroCatastral";
+            this.NroCatastral.ReadOnly = true;
+            this.NroCatastral.Width = 95;
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.HeaderText = "Fecha de inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.ReadOnly = true;
+            // 
+            // FechaFinal
+            // 
+            this.FechaFinal.HeaderText = "Fecha final";
+            this.FechaFinal.Name = "FechaFinal";
+            this.FechaFinal.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 120;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // FormProyectos
             // 
@@ -122,5 +185,12 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnProySalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoProyecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NroCatastral;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFinal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }
