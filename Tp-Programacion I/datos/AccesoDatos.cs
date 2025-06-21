@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ABMArquitectura.Datos  
+namespace Tp_Programacion_I.Datos  
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"; //Local
+        private string CadenaConexion = @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;"; //Local
+        // Conexión de Agus: @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;

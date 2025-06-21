@@ -48,6 +48,15 @@
   <ItemGroup>
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\Parametro.cs" />
+    <Compile Include="Datos\ProyectoDao.cs" />
+    <Compile Include="Negocio\Cliente.cs" />
+    <Compile Include="Negocio\Estado.cs" />
+    <Compile Include="Negocio\Etapa.cs" />
+    <Compile Include="Negocio\Localizacion.cs" />
+    <Compile Include="Negocio\Proyecto.cs" />
+    <Compile Include="Negocio\ProyectoServicio.cs" />
+    <Compile Include="Negocio\TipoProyectos.cs" />
+    <Compile Include="Negocio\UnidadMedida.cs" />
     <Compile Include="Presentacion\FormDetalles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,8 +117,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Negocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

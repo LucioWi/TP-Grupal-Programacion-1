@@ -45,8 +45,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtCod = new System.Windows.Forms.TextBox();
-            this.cmboxLocalizacion = new System.Windows.Forms.ComboBox();
-            this.cmboxTipoProy = new System.Windows.Forms.ComboBox();
+            this.cboLocalizacion = new System.Windows.Forms.ComboBox();
+            this.cboTipoProy = new System.Windows.Forms.ComboBox();
             this.dtpFinicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFfin = new System.Windows.Forms.DateTimePicker();
             this.dtpFFinEst = new System.Windows.Forms.DateTimePicker();
@@ -54,10 +54,10 @@
             this.txtSupTerreno = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.cmboxUniMedida = new System.Windows.Forms.ComboBox();
-            this.cmboxEstado = new System.Windows.Forms.ComboBox();
-            this.cmboxCliente = new System.Windows.Forms.ComboBox();
-            this.cmboxEtapa = new System.Windows.Forms.ComboBox();
+            this.cboUniMedida = new System.Windows.Forms.ComboBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
+            this.cboEtapa = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -233,23 +233,23 @@
             this.txtCod.TabIndex = 0;
             this.txtCod.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // cmboxLocalizacion
+            // cboLocalizacion
             // 
-            this.cmboxLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxLocalizacion.FormattingEnabled = true;
-            this.cmboxLocalizacion.Location = new System.Drawing.Point(224, 107);
-            this.cmboxLocalizacion.Name = "cmboxLocalizacion";
-            this.cmboxLocalizacion.Size = new System.Drawing.Size(121, 24);
-            this.cmboxLocalizacion.TabIndex = 1;
+            this.cboLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLocalizacion.FormattingEnabled = true;
+            this.cboLocalizacion.Location = new System.Drawing.Point(224, 107);
+            this.cboLocalizacion.Name = "cboLocalizacion";
+            this.cboLocalizacion.Size = new System.Drawing.Size(121, 24);
+            this.cboLocalizacion.TabIndex = 1;
             // 
-            // cmboxTipoProy
+            // cboTipoProy
             // 
-            this.cmboxTipoProy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxTipoProy.FormattingEnabled = true;
-            this.cmboxTipoProy.Location = new System.Drawing.Point(224, 141);
-            this.cmboxTipoProy.Name = "cmboxTipoProy";
-            this.cmboxTipoProy.Size = new System.Drawing.Size(121, 24);
-            this.cmboxTipoProy.TabIndex = 2;
+            this.cboTipoProy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoProy.FormattingEnabled = true;
+            this.cboTipoProy.Location = new System.Drawing.Point(224, 141);
+            this.cboTipoProy.Name = "cboTipoProy";
+            this.cboTipoProy.Size = new System.Drawing.Size(121, 24);
+            this.cboTipoProy.TabIndex = 2;
             // 
             // dtpFinicio
             // 
@@ -310,41 +310,41 @@
             this.textBox6.Size = new System.Drawing.Size(150, 22);
             this.textBox6.TabIndex = 10;
             // 
-            // cmboxUniMedida
+            // cboUniMedida
             // 
-            this.cmboxUniMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxUniMedida.FormattingEnabled = true;
-            this.cmboxUniMedida.Location = new System.Drawing.Point(224, 336);
-            this.cmboxUniMedida.Name = "cmboxUniMedida";
-            this.cmboxUniMedida.Size = new System.Drawing.Size(121, 24);
-            this.cmboxUniMedida.TabIndex = 8;
+            this.cboUniMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboUniMedida.FormattingEnabled = true;
+            this.cboUniMedida.Location = new System.Drawing.Point(224, 336);
+            this.cboUniMedida.Name = "cboUniMedida";
+            this.cboUniMedida.Size = new System.Drawing.Size(121, 24);
+            this.cboUniMedida.TabIndex = 8;
             // 
-            // cmboxEstado
+            // cboEstado
             // 
-            this.cmboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxEstado.FormattingEnabled = true;
-            this.cmboxEstado.Location = new System.Drawing.Point(224, 461);
-            this.cmboxEstado.Name = "cmboxEstado";
-            this.cmboxEstado.Size = new System.Drawing.Size(121, 24);
-            this.cmboxEstado.TabIndex = 12;
+            this.cboEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(224, 461);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(121, 24);
+            this.cboEstado.TabIndex = 12;
             // 
-            // cmboxCliente
+            // cboCliente
             // 
-            this.cmboxCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxCliente.FormattingEnabled = true;
-            this.cmboxCliente.Location = new System.Drawing.Point(224, 429);
-            this.cmboxCliente.Name = "cmboxCliente";
-            this.cmboxCliente.Size = new System.Drawing.Size(121, 24);
-            this.cmboxCliente.TabIndex = 11;
+            this.cboCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(224, 429);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(121, 24);
+            this.cboCliente.TabIndex = 11;
             // 
-            // cmboxEtapa
+            // cboEtapa
             // 
-            this.cmboxEtapa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxEtapa.FormattingEnabled = true;
-            this.cmboxEtapa.Location = new System.Drawing.Point(224, 494);
-            this.cmboxEtapa.Name = "cmboxEtapa";
-            this.cmboxEtapa.Size = new System.Drawing.Size(121, 24);
-            this.cmboxEtapa.TabIndex = 13;
+            this.cboEtapa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEtapa.FormattingEnabled = true;
+            this.cboEtapa.Location = new System.Drawing.Point(224, 494);
+            this.cboEtapa.Name = "cboEtapa";
+            this.cboEtapa.Size = new System.Drawing.Size(121, 24);
+            this.cboEtapa.TabIndex = 13;
             // 
             // btnAgregar
             // 
@@ -396,10 +396,10 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.cmboxEtapa);
-            this.Controls.Add(this.cmboxCliente);
-            this.Controls.Add(this.cmboxEstado);
-            this.Controls.Add(this.cmboxUniMedida);
+            this.Controls.Add(this.cboEtapa);
+            this.Controls.Add(this.cboCliente);
+            this.Controls.Add(this.cboEstado);
+            this.Controls.Add(this.cboUniMedida);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtSupTerreno);
@@ -407,8 +407,8 @@
             this.Controls.Add(this.dtpFFinEst);
             this.Controls.Add(this.dtpFfin);
             this.Controls.Add(this.dtpFinicio);
-            this.Controls.Add(this.cmboxTipoProy);
-            this.Controls.Add(this.cmboxLocalizacion);
+            this.Controls.Add(this.cboTipoProy);
+            this.Controls.Add(this.cboLocalizacion);
             this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -428,6 +428,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormDetalles";
             this.Text = "Detalles";
+            this.Load += new System.EventHandler(this.FormDetalles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,8 +453,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtCod;
-        private System.Windows.Forms.ComboBox cmboxLocalizacion;
-        private System.Windows.Forms.ComboBox cmboxTipoProy;
+        private System.Windows.Forms.ComboBox cboLocalizacion;
+        private System.Windows.Forms.ComboBox cboTipoProy;
         private System.Windows.Forms.DateTimePicker dtpFinicio;
         private System.Windows.Forms.DateTimePicker dtpFfin;
         private System.Windows.Forms.DateTimePicker dtpFFinEst;
@@ -461,10 +462,10 @@
         private System.Windows.Forms.TextBox txtSupTerreno;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox cmboxUniMedida;
-        private System.Windows.Forms.ComboBox cmboxEstado;
-        private System.Windows.Forms.ComboBox cmboxCliente;
-        private System.Windows.Forms.ComboBox cmboxEtapa;
+        private System.Windows.Forms.ComboBox cboUniMedida;
+        private System.Windows.Forms.ComboBox cboEstado;
+        private System.Windows.Forms.ComboBox cboCliente;
+        private System.Windows.Forms.ComboBox cboEtapa;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;

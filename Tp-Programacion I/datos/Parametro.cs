@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ABMArquitectura.Datos 
+namespace Tp_Programacion_I.Datos 
 {
     public class Parametro
     {
