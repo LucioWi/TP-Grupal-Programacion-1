@@ -1,0 +1,14 @@
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp-Programacion I.csproj.AssemblyReference.cache
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\bin\Debug\Tp-Programacion I.exe.config
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\bin\Debug\Tp-Programacion I.exe
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\bin\Debug\Tp-Programacion I.pdb
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp_Programacion_I.FormDetalles.resources
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp_Programacion_I.FormPrincipal.resources
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp_Programacion_I.FormProyectos.resources
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp_Programacion_I.Presentacion.FrmNosotros.resources
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp_Programacion_I.Properties.Resources.resources
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp-Programacion I.csproj.GenerateResource.cache
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp-Programacion I.csproj.CoreCompileInputs.cache
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp-Programacion I.exe
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp-Programacion I.pdb
+C:\Users\ColdT\Downloads\TP-Grupal-Programacion-1-master\Tp-Programacion I\obj\Debug\Tp-Programacion I.exe.config
