@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvProyectos = new System.Windows.Forms.DataGridView();
             this.btnProySalir = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@
             this.FechaFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProyectos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +74,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscar
             // 
@@ -83,12 +84,12 @@
             this.txtBuscar.Size = new System.Drawing.Size(370, 22);
             this.txtBuscar.TabIndex = 0;
             // 
-            // dataGridView1
+            // DgvProyectos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvProyectos.AllowUserToAddRows = false;
+            this.DgvProyectos.AllowUserToDeleteRows = false;
+            this.DgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProyectos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
             this.TipoProyecto,
             this.NroCatastral,
@@ -96,11 +97,11 @@
             this.FechaFinal,
             this.Cliente,
             this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(19, 161);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 278);
-            this.dataGridView1.TabIndex = 2;
+            this.DgvProyectos.Location = new System.Drawing.Point(19, 161);
+            this.DgvProyectos.Name = "DgvProyectos";
+            this.DgvProyectos.ReadOnly = true;
+            this.DgvProyectos.Size = new System.Drawing.Size(802, 278);
+            this.DgvProyectos.TabIndex = 2;
             // 
             // btnProySalir
             // 
@@ -122,31 +123,33 @@
             // 
             // TipoProyecto
             // 
-            this.TipoProyecto.HeaderText = "Tipo de proyecto";
+            this.TipoProyecto.HeaderText = "Tipo de Proyecto";
             this.TipoProyecto.Name = "TipoProyecto";
             this.TipoProyecto.ReadOnly = true;
             // 
             // NroCatastral
             // 
+            this.NroCatastral.FillWeight = 90F;
             this.NroCatastral.HeaderText = "Número catastral";
             this.NroCatastral.Name = "NroCatastral";
             this.NroCatastral.ReadOnly = true;
-            this.NroCatastral.Width = 95;
+            this.NroCatastral.Width = 90;
             // 
             // FechaInicio
             // 
-            this.FechaInicio.HeaderText = "Fecha de inicio";
+            this.FechaInicio.HeaderText = "Fecha de Inicio";
             this.FechaInicio.Name = "FechaInicio";
             this.FechaInicio.ReadOnly = true;
             // 
             // FechaFinal
             // 
-            this.FechaFinal.HeaderText = "Fecha final";
+            this.FechaFinal.HeaderText = "Fecha Final";
             this.FechaFinal.Name = "FechaFinal";
             this.FechaFinal.ReadOnly = true;
             // 
             // Cliente
             // 
+            this.Cliente.FillWeight = 120F;
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
@@ -164,14 +167,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 523);
             this.Controls.Add(this.btnProySalir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgvProyectos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormProyectos";
             this.Text = "Proyectos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormProyectos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProyectos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,7 +187,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgvProyectos;
         private System.Windows.Forms.Button btnProySalir;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoProyecto;

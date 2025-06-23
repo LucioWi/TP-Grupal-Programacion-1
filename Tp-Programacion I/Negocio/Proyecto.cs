@@ -9,7 +9,7 @@ namespace Tp_Programacion_I.Negocio
     public class Proyecto
     {
         private int codigo;
-        private Localizacion localizacion;
+        private Pais localizacion;
         private TipoProyectos tipoProyectos;
         private int nroCatastral;
         private double supTerr;
@@ -28,7 +28,7 @@ namespace Tp_Programacion_I.Negocio
             get { return codigo; }
             set { codigo = value; }
         }
-        public Localizacion Localizacion
+        public Pais Localizacion
         {
             get { return localizacion; }
             set { localizacion = value; }
