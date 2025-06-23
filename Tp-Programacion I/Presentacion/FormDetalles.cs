@@ -15,6 +15,34 @@ namespace Tp_Programacion_I
     public partial class FormDetalles : Form
     {
         ProyectoServicio oServicio;
+
+        private NuevoProyecto ObtenerDatosProyecto()
+        {
+            return new NuevoProyecto
+            {
+                Codigo = txtBusqueda.Text.Trim(),
+                Pais = cboPais.SelectedValue?.ToString(),
+                Provincia = txtProvincia.Text.Trim(),
+                Ciudad = txtCiudad.Text.Trim(),
+                Barrio = txtBarrio.Text.Trim(),
+                Calle = txtCalle.Text.Trim(),
+                Altura = txtAltura.Text.Trim(),
+                TipoProyecto = cboTipoProy.SelectedValue?.ToString(),
+                NroCatastral = txtNroCatastral.Text.Trim(),
+                UnidadMedida = cboUniMedida.SelectedValue?.ToString(),
+                Superficie = txtSupTerreno.Text.Trim(),
+                SuperficieProy = txtSupProy.Text.Trim(),
+                FechaInicio = dtpFinicio.Value,
+                FechaFinal = dtpFfin.Value,
+                FechaEstimada = dtpFFinEst.Value,
+                Precio = txtPrecio.Text.Trim(),
+                Cliente = cboCliente.SelectedValue?.ToString(),
+                Estado = cboEstado.SelectedValue?.ToString(),
+                Etapa = cboEtapa.SelectedValue?.ToString(),
+                Socios = cboSocios.SelectedValue?.ToString()
+            };
+        }
+
         public FormDetalles()
         {
             InitializeComponent();
@@ -112,6 +140,79 @@ namespace Tp_Programacion_I
             }
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
             combo.SelectedIndex = -1;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            
+            var proyecto = ObtenerDatosProyecto();
+
+            //verificar que no haya ningun campo vacío, sino mostrar mensaje de error
+            if (string.IsNullOrWhiteSpace(proyecto.Pais) || string.IsNullOrWhiteSpace(proyecto.Provincia) ||
+                string.IsNullOrWhiteSpace(proyecto.Ciudad) || string.IsNullOrWhiteSpace(proyecto.Barrio) || string.IsNullOrWhiteSpace(proyecto.Calle) ||
+                string.IsNullOrWhiteSpace(proyecto.Altura) || string.IsNullOrWhiteSpace(proyecto.TipoProyecto) || string.IsNullOrWhiteSpace(proyecto.NroCatastral) ||
+                string.IsNullOrWhiteSpace(proyecto.Superficie) || string.IsNullOrWhiteSpace(proyecto.SuperficieProy) || string.IsNullOrWhiteSpace(proyecto.UnidadMedida) || string.IsNullOrWhiteSpace(proyecto.Precio) ||
+                string.IsNullOrWhiteSpace(proyecto.Cliente) || string.IsNullOrWhiteSpace(proyecto.Estado) || string.IsNullOrWhiteSpace(proyecto.Etapa) ||
+                string.IsNullOrWhiteSpace(proyecto.Socios))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+            }
+            else
+            {
+                // Aquí puedes agregar la lógica para guardar el proyecto
+
+                InsertarDatos insertar = new InsertarDatos();
+                bool exito = insertar.InsertarNuevoProyecto(proyecto);
+
+                if (exito)
+                {
+                    MessageBox.Show("Proyecto agregado correctamente.");
+                    LimpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al agregar el proyecto.");
+                }
+
+            }
+        }
+        
+
+        private void LimpiarCampos()
+        {
+            
+            cboPais.SelectedIndex = -1;
+            txtProvincia.Clear();
+            txtCiudad.Clear();
+            txtBarrio.Clear();
+            txtCalle.Clear();
+            txtAltura.Clear();
+            cboTipoProy.SelectedIndex = -1;
+            txtNroCatastral.Clear();
+            txtSupTerreno.Clear();
+            dtpFinicio.Value = DateTime.Now;
+            dtpFfin.Value = DateTime.Now;
+            dtpFFinEst.Value = DateTime.Now;
+            cboUniMedida.SelectedIndex = -1;
+            txtSupProy.Clear();
+            txtPrecio.Clear();
+            cboCliente.SelectedIndex = -1;
+            cboEstado.SelectedIndex = -1;
+            cboEtapa.SelectedIndex = -1;
+            cboSocios.SelectedIndex = -1;
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

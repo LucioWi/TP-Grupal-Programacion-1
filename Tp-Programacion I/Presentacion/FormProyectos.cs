@@ -38,18 +38,27 @@ namespace Tp_Programacion_I
         {
             this.Close();
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string nroCatastral = txtBuscar.Text;
+            string nroCatastral = txtBuscar.Text.Trim();
 
-            if (!string.IsNullOrEmpty(nroCatastral))
+            if (string.IsNullOrWhiteSpace(nroCatastral))
             {
-                CargarProyectos(nroCatastral);
+                CargarProyectos(); // Si no se ingresa un número catastral, carga todos los proyectos
+                return;
+            }
+
+            // Verificamos si existe el nroCatastral en la base de datos
+            string consultaSQL = oServicio.TraerTodosProyectos() + $" WHERE p.nro_catastral = '{nroCatastral}'";
+            DataTable resultado = oBD.ConsultarBD(consultaSQL);
+
+            if (resultado.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron proyectos con el número catastral ingresado.");
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese un número catastral válido.");
+                CargarProyectos(nroCatastral); // Solo carga si hay datos
             }
         }
 
@@ -57,11 +66,11 @@ namespace Tp_Programacion_I
         {
             CargarProyectos();
         }
+
         private void CargarProyectos(string nroCatastral = null)
         {
             string consultaSQL;
-
-            if (string.IsNullOrEmpty(nroCatastral))
+            if (string.IsNullOrWhiteSpace(nroCatastral))
             {
                 consultaSQL = oServicio.TraerTodosProyectos();
             }
@@ -69,14 +78,19 @@ namespace Tp_Programacion_I
             {
                 consultaSQL = oServicio.TraerTodosProyectos() + $" WHERE p.nro_catastral = '{nroCatastral}'";
             }
-
             DataTable tabla = oBD.ConsultarBD(consultaSQL);
             DgvProyectos.Rows.Clear();
-
             foreach (DataRow fila in tabla.Rows)
             {
                 DgvProyectos.Rows.Add(fila[0], fila[1], fila[2], fila[3], fila[4], fila[5], fila[6]);
             }
+
+            DgvProyectos.Columns[0].Visible = false;
+        }
+
+        private void DgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

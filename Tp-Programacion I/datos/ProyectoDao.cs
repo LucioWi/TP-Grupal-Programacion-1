@@ -13,10 +13,11 @@ namespace Tp_Programacion_I.Datos
     public class ProyectoDao
     {
         AccesoDatos oBD;
-        public ProyectoDao() 
-        { 
+        public ProyectoDao()
+        {
             oBD = new AccesoDatos();
         }
+
 
         public List<Pais> RecuperarPais()
         {
@@ -34,14 +35,14 @@ namespace Tp_Programacion_I.Datos
 
         public List<TipoProyectos> RecuperarTipoProyectos()
         {
-            List<TipoProyectos> Lista = new List<TipoProyectos> ();
+            List<TipoProyectos> Lista = new List<TipoProyectos>();
             DataTable tabla = oBD.ConsultarTabla("tipo_proyectos");
             foreach (DataRow fila in tabla.Rows)
             {
                 TipoProyectos oTipoProyectos = new TipoProyectos();
                 oTipoProyectos.Codigo = (int)fila["id_tipo_proyecto"];
                 oTipoProyectos.Tipo = fila["tipo_proyecto"].ToString();
-                Lista.Add (oTipoProyectos);
+                Lista.Add(oTipoProyectos);
             }
             return Lista;
         }
@@ -82,7 +83,7 @@ namespace Tp_Programacion_I.Datos
             {
                 Estado oEstado = new Estado();
                 oEstado.Codigo = (int)fila["id_estado_proyecto"];
-                oEstado.EstadoProyecto= fila["estado"].ToString();
+                oEstado.EstadoProyecto = fila["estado"].ToString();
                 Lista.Add(oEstado);
             }
             return Lista;
@@ -115,5 +116,8 @@ namespace Tp_Programacion_I.Datos
             }
             return Lista;
         }
+
+        //Nuevo
     }
 }
+

@@ -17,6 +17,7 @@ namespace Tp_Programacion_I.Negocio
         {
             oDao = new ProyectoDao();
         }
+
         public string TraerTodosProyectos()
         {
             string consultaSQL = $@"

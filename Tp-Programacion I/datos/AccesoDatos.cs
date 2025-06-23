@@ -10,7 +10,8 @@ namespace Tp_Programacion_I.Datos
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;"; //Local
+        private string CadenaConexion = @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=False";
+            // @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;"; //Local
         // Conexión de Agus: @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
         private SqlConnection conexion;
         private SqlCommand comando;
@@ -50,6 +51,59 @@ namespace Tp_Programacion_I.Datos
             return tabla;
         }
 
+
+        public object ActualizarBD(string consultaSQL, List<Parametro> parametros = null, bool obtenerEscalar = false)
+        {
+            try
+            {
+                Conectar();
+                comando.CommandText = consultaSQL;
+                comando.Parameters.Clear();
+
+                if (parametros != null)
+                {
+                    foreach (Parametro p in parametros)
+                    {
+                        comando.Parameters.AddWithValue(p.Nombre, p.Valor ?? DBNull.Value);
+                    }
+                }
+
+                return obtenerEscalar ? comando.ExecuteScalar() : comando.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        public DataTable ConsultarBD(string consultaSQL, List<Parametro> parametros = null)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                Conectar();
+                comando.CommandText = consultaSQL;
+                comando.Parameters.Clear();
+
+                if (parametros != null)
+                {
+                    foreach (Parametro p in parametros)
+                    {
+                        comando.Parameters.AddWithValue(p.Nombre, p.Valor ?? DBNull.Value);
+                    }
+                }
+
+                tabla.Load(comando.ExecuteReader());
+                return tabla;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        /*
+
         public DataTable ConsultarBD(string consultaSQL)
         {
             DataTable tabla = new DataTable();
@@ -81,6 +135,8 @@ namespace Tp_Programacion_I.Datos
             this.Desconectar();
             return filasAfectadas;
         }
+
+         */
 
     }
 }

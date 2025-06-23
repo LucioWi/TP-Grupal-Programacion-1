@@ -49,6 +49,7 @@
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\Parametro.cs" />
     <Compile Include="Datos\ProyectoDao.cs" />
+    <Compile Include="InsertarDatos.cs" />
     <Compile Include="Negocio\Cliente.cs" />
     <Compile Include="Negocio\Estado.cs" />
     <Compile Include="Negocio\Etapa.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Negocio\Socio.cs" />
     <Compile Include="Negocio\TipoProyectos.cs" />
     <Compile Include="Negocio\UnidadMedida.cs" />
+    <Compile Include="NuevoProyecto.cs" />
     <Compile Include="Presentacion\FormDetalles.cs">
       <SubType>Form</SubType>
     </Compile>
