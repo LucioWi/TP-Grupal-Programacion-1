@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,13 +74,15 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.chboxHabFechaFinal = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 32);
             this.label1.TabIndex = 0;
@@ -102,16 +103,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 21);
             this.label3.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 90);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 21);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Agregar / Editar";
             // 
             // label5
             // 
@@ -243,107 +234,111 @@
             // cboTipoProy
             // 
             this.cboTipoProy.DisplayMember = "Tipo";
-            this.cboTipoProy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoProy.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTipoProy.FormattingEnabled = true;
             this.cboTipoProy.Location = new System.Drawing.Point(212, 240);
             this.cboTipoProy.Name = "cboTipoProy";
-            this.cboTipoProy.Size = new System.Drawing.Size(121, 24);
+            this.cboTipoProy.Size = new System.Drawing.Size(121, 25);
             this.cboTipoProy.TabIndex = 6;
             this.cboTipoProy.ValueMember = "Codigo";
             // 
             // dtpFinicio
             // 
-            this.dtpFinicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFinicio.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFinicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFinicio.Location = new System.Drawing.Point(214, 404);
             this.dtpFinicio.Name = "dtpFinicio";
-            this.dtpFinicio.Size = new System.Drawing.Size(94, 22);
+            this.dtpFinicio.Size = new System.Drawing.Size(94, 25);
             this.dtpFinicio.TabIndex = 11;
             // 
             // dtpFfin
             // 
-            this.dtpFfin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFfin.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFfin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFfin.Location = new System.Drawing.Point(214, 435);
             this.dtpFfin.Name = "dtpFfin";
-            this.dtpFfin.Size = new System.Drawing.Size(94, 22);
+            this.dtpFfin.Size = new System.Drawing.Size(94, 25);
             this.dtpFfin.TabIndex = 12;
             // 
             // dtpFFinEst
             // 
-            this.dtpFFinEst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFFinEst.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFFinEst.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFFinEst.Location = new System.Drawing.Point(214, 467);
             this.dtpFFinEst.Name = "dtpFFinEst";
-            this.dtpFFinEst.Size = new System.Drawing.Size(94, 22);
+            this.dtpFFinEst.Size = new System.Drawing.Size(94, 25);
             this.dtpFFinEst.TabIndex = 13;
             // 
             // txtNroCatastral
             // 
-            this.txtNroCatastral.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroCatastral.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNroCatastral.Location = new System.Drawing.Point(212, 272);
             this.txtNroCatastral.Name = "txtNroCatastral";
-            this.txtNroCatastral.Size = new System.Drawing.Size(150, 22);
+            this.txtNroCatastral.Size = new System.Drawing.Size(150, 25);
             this.txtNroCatastral.TabIndex = 7;
+            this.txtNroCatastral.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumerico_KeyPress);
             // 
             // txtSupTerreno
             // 
-            this.txtSupTerreno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupTerreno.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupTerreno.Location = new System.Drawing.Point(212, 335);
             this.txtSupTerreno.Name = "txtSupTerreno";
-            this.txtSupTerreno.Size = new System.Drawing.Size(150, 22);
+            this.txtSupTerreno.Size = new System.Drawing.Size(150, 25);
             this.txtSupTerreno.TabIndex = 9;
+            this.txtSupTerreno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumericoyComas_KeyPress);
             // 
             // txtSupProy
             // 
-            this.txtSupProy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupProy.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupProy.Location = new System.Drawing.Point(212, 371);
             this.txtSupProy.Name = "txtSupProy";
-            this.txtSupProy.Size = new System.Drawing.Size(150, 22);
+            this.txtSupProy.Size = new System.Drawing.Size(150, 25);
             this.txtSupProy.TabIndex = 10;
+            this.txtSupProy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumericoyComas_KeyPress);
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(212, 498);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(150, 22);
+            this.txtPrecio.Size = new System.Drawing.Size(150, 25);
             this.txtPrecio.TabIndex = 14;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumerico_KeyPress);
             // 
             // cboUniMedida
             // 
-            this.cboUniMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboUniMedida.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUniMedida.FormattingEnabled = true;
             this.cboUniMedida.Location = new System.Drawing.Point(213, 303);
             this.cboUniMedida.Name = "cboUniMedida";
-            this.cboUniMedida.Size = new System.Drawing.Size(121, 24);
+            this.cboUniMedida.Size = new System.Drawing.Size(121, 25);
             this.cboUniMedida.TabIndex = 8;
             // 
             // cboEstado
             // 
-            this.cboEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEstado.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Location = new System.Drawing.Point(212, 560);
             this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(121, 24);
+            this.cboEstado.Size = new System.Drawing.Size(121, 25);
             this.cboEstado.TabIndex = 16;
             // 
             // cboCliente
             // 
-            this.cboCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCliente.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCliente.FormattingEnabled = true;
             this.cboCliente.Location = new System.Drawing.Point(212, 528);
             this.cboCliente.Name = "cboCliente";
-            this.cboCliente.Size = new System.Drawing.Size(121, 24);
+            this.cboCliente.Size = new System.Drawing.Size(121, 25);
             this.cboCliente.TabIndex = 15;
             // 
             // cboEtapa
             // 
-            this.cboEtapa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEtapa.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEtapa.FormattingEnabled = true;
             this.cboEtapa.Location = new System.Drawing.Point(212, 593);
             this.cboEtapa.Name = "cboEtapa";
-            this.cboEtapa.Size = new System.Drawing.Size(121, 24);
+            this.cboEtapa.Size = new System.Drawing.Size(121, 25);
             this.cboEtapa.TabIndex = 17;
             // 
             // btnAgregar
@@ -380,27 +375,27 @@
             // 
             // cboPais
             // 
-            this.cboPais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPais.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPais.FormattingEnabled = true;
             this.cboPais.Location = new System.Drawing.Point(125, 134);
             this.cboPais.Name = "cboPais";
-            this.cboPais.Size = new System.Drawing.Size(121, 24);
+            this.cboPais.Size = new System.Drawing.Size(121, 25);
             this.cboPais.TabIndex = 0;
             // 
             // txtProvincia
             // 
-            this.txtProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProvincia.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProvincia.Location = new System.Drawing.Point(125, 164);
             this.txtProvincia.Name = "txtProvincia";
-            this.txtProvincia.Size = new System.Drawing.Size(121, 22);
+            this.txtProvincia.Size = new System.Drawing.Size(121, 25);
             this.txtProvincia.TabIndex = 1;
             // 
             // txtCiudad
             // 
-            this.txtCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCiudad.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCiudad.Location = new System.Drawing.Point(125, 193);
             this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(121, 22);
+            this.txtCiudad.Size = new System.Drawing.Size(121, 25);
             this.txtCiudad.TabIndex = 2;
             // 
             // label18
@@ -445,18 +440,18 @@
             // 
             // txtCalle
             // 
-            this.txtCalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCalle.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCalle.Location = new System.Drawing.Point(350, 166);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(121, 22);
+            this.txtCalle.Size = new System.Drawing.Size(121, 25);
             this.txtCalle.TabIndex = 4;
             // 
             // txtBarrio
             // 
-            this.txtBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarrio.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarrio.Location = new System.Drawing.Point(350, 137);
             this.txtBarrio.Name = "txtBarrio";
-            this.txtBarrio.Size = new System.Drawing.Size(121, 22);
+            this.txtBarrio.Size = new System.Drawing.Size(121, 25);
             this.txtBarrio.TabIndex = 3;
             // 
             // label23
@@ -471,20 +466,21 @@
             // 
             // txtAltura
             // 
-            this.txtAltura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAltura.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAltura.Location = new System.Drawing.Point(350, 194);
             this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(121, 22);
+            this.txtAltura.Size = new System.Drawing.Size(121, 25);
             this.txtAltura.TabIndex = 5;
+            this.txtAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumerico_KeyPress);
             // 
             // cboSocios
             // 
             this.cboSocios.DisplayMember = "Nombre";
-            this.cboSocios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSocios.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSocios.FormattingEnabled = true;
             this.cboSocios.Location = new System.Drawing.Point(212, 623);
             this.cboSocios.Name = "cboSocios";
-            this.cboSocios.Size = new System.Drawing.Size(121, 24);
+            this.cboSocios.Size = new System.Drawing.Size(121, 25);
             this.cboSocios.TabIndex = 18;
             this.cboSocios.ValueMember = "Codigo";
             // 
@@ -509,11 +505,33 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(15, 66);
+            this.label22.Location = new System.Drawing.Point(15, 54);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(448, 13);
             this.label22.TabIndex = 88;
             this.label22.Text = "_______________________________________________________________";
+            // 
+            // chboxHabFechaFinal
+            // 
+            this.chboxHabFechaFinal.AutoSize = true;
+            this.chboxHabFechaFinal.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chboxHabFechaFinal.Location = new System.Drawing.Point(315, 438);
+            this.chboxHabFechaFinal.Name = "chboxHabFechaFinal";
+            this.chboxHabFechaFinal.Size = new System.Drawing.Size(162, 17);
+            this.chboxHabFechaFinal.TabIndex = 91;
+            this.chboxHabFechaFinal.Text = "¿El proyecto ha finalizado?";
+            this.chboxHabFechaFinal.UseVisualStyleBackColor = true;
+            this.chboxHabFechaFinal.CheckedChanged += new System.EventHandler(this.chboxHabFechaFinal_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(46, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 25);
+            this.label4.TabIndex = 92;
+            this.label4.Text = "Localización";
             // 
             // FormDetallesAgregar
             // 
@@ -521,6 +539,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(550, 731);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.chboxHabFechaFinal);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.cboSocios);
@@ -564,7 +584,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -582,7 +601,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -626,5 +644,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.CheckBox chboxHabFechaFinal;
+        private System.Windows.Forms.Label label4;
     }
 }

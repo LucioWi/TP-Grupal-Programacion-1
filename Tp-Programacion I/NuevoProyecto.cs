@@ -20,7 +20,7 @@ namespace Tp_Programacion_I
             public string Superficie { get; set; }
             public string SuperficieProy { get; set; }
             public DateTime FechaInicio { get; set; }
-            public DateTime FechaFinal { get; set; }
+            public DateTime? FechaFinal { get; set; }
             public DateTime FechaEstimada { get; set; }
             public string UnidadMedida { get; set; }
             public string Precio { get; set; }

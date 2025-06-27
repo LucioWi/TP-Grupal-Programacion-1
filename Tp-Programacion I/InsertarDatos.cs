@@ -9,7 +9,7 @@ using Tp_Programacion_I.Datos;
 
 namespace Tp_Programacion_I
 {
-    internal class InsertarDatos
+    public class InsertarDatos
     {
 
         private AccesoDatos oBD = new AccesoDatos();
@@ -113,7 +113,7 @@ namespace Tp_Programacion_I
             new Parametro("@supTerreno", nuevo.Superficie),
             new Parametro("@supProyecto", nuevo.SuperficieProy),
             new Parametro("@fechaInicio", nuevo.FechaInicio),
-            new Parametro("@fechaFinal", nuevo.FechaFinal),
+            new Parametro("@fechaFinal", nuevo.FechaFinal.HasValue ? (object)nuevo.FechaFinal.Value : DBNull.Value),
             new Parametro("@fechaEstimada", nuevo.FechaEstimada),
             new Parametro("@precio", nuevo.Precio),
             new Parametro("@cliente", idCliente),

@@ -34,7 +34,7 @@ namespace Tp_Programacion_I
                 Superficie = txtSupTerreno.Text.Trim(),
                 SuperficieProy = txtSupProy.Text.Trim(),
                 FechaInicio = dtpFinicio.Value,
-                FechaFinal = dtpFfin.Value,
+                FechaFinal = (dtpFfin.Enabled && dtpFfin.Checked) ? (DateTime?)dtpFfin.Value : null,
                 FechaEstimada = dtpFFinEst.Value,
                 Precio = txtPrecio.Text.Trim(),
                 Cliente = cboCliente.SelectedValue?.ToString(),
@@ -65,6 +65,8 @@ namespace Tp_Programacion_I
             CargarCombo(cboEstado);
             CargarCombo(cboEtapa);
             CargarCombo(cboSocios);
+
+            dtpFfin.Enabled = false;
         }
         private void CargarCombo(ComboBox combo)
         {
@@ -74,7 +76,7 @@ namespace Tp_Programacion_I
             if (combo == cboPais)
             {
                 combo.DataSource = oServicio.TraerPaises()
-                    .GroupBy(l => l.Paises) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.Paises)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "Paises";
@@ -84,7 +86,7 @@ namespace Tp_Programacion_I
             if (combo == cboTipoProy)
             {
                 combo.DataSource = oServicio.TraerTipoProyectos()
-                    .GroupBy(l => l.Tipo) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.Tipo)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "Tipo";
@@ -93,7 +95,7 @@ namespace Tp_Programacion_I
             if (combo == cboUniMedida)
             {
                 combo.DataSource = oServicio.TraerUnidadMedida()
-                    .GroupBy(l => l.Medida) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.Medida)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "Medida";
@@ -102,7 +104,7 @@ namespace Tp_Programacion_I
             if (combo == cboCliente)
             {
                 combo.DataSource = oServicio.TraerClientes()
-                    .GroupBy(l => l.Nombre) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.Nombre)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "Nombre";
@@ -111,7 +113,7 @@ namespace Tp_Programacion_I
             if (combo == cboEstado)
             {
                 combo.DataSource = oServicio.TraerEstados()
-                    .GroupBy(l => l.EstadoProyecto) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.EstadoProyecto)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "EstadoProyecto";
@@ -120,7 +122,7 @@ namespace Tp_Programacion_I
             if (combo == cboEtapa)
             {
                 combo.DataSource = oServicio.TraerEtapas()
-                    .GroupBy(l => l.EtapaProyecto) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.EtapaProyecto)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "EtapaProyecto";
@@ -129,7 +131,7 @@ namespace Tp_Programacion_I
             if (combo == cboSocios)
             {
                 combo.DataSource = oServicio.TraerSocios()
-                    .GroupBy(l => l.Nombre) // Asegura que no haya duplicados por Código
+                    .GroupBy(l => l.Nombre)
                     .Select(g => g.First())
                     .ToList();
                 combo.DisplayMember = "Nombre";
@@ -165,9 +167,7 @@ namespace Tp_Programacion_I
                     double supProy = Convert.ToDouble(txtSupProy.Text);
                     double precio = Convert.ToDouble(txtPrecio.Text);
                     double altura = Convert.ToDouble(txtAltura.Text);
-                    double barrio = Convert.ToDouble(txtBarrio.Text);
-                    double provincia = Convert.ToDouble(txtProvincia.Text);
-                    double ciudad = Convert.ToDouble(txtCiudad.Text);
+                    
 
                     // Por ejemplo, validar rango si querés:
                     if (nroCatastral < int.MinValue || nroCatastral > int.MaxValue)
@@ -190,9 +190,16 @@ namespace Tp_Programacion_I
                     return;
                 }
 
-                if (dtpFinicio.Value >= dtpFFinEst.Value || dtpFinicio.Value >= dtpFfin.Value)
+                if (dtpFinicio.Value >= dtpFFinEst.Value)
                 {
-                    MessageBox.Show("La fecha de inicio no puede ser mayor o igual que la fecha de fin estimada ni que la fecha de fin.", "Error de fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La fecha de inicio no puede ser mayor o igual que la fecha final estimada.", "Error de fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Solo validar contra fecha final si el checkbox está activado
+                if (chboxHabFechaFinal.Checked && dtpFinicio.Value >= dtpFfin.Value)
+                {
+                    MessageBox.Show("La fecha de inicio no puede ser mayor o igual que la fecha final.", "Error de fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -237,5 +244,31 @@ namespace Tp_Programacion_I
             cboSocios.SelectedIndex = -1;
         }
 
+        private void chboxHabFechaFinal_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpFfin.Enabled = chboxHabFechaFinal.Checked;
+        }
+
+        private void soloNumerico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo números y la tecla de retroceso
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void soloNumericoyComas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == ',') && (txt.Text.Contains(",")))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

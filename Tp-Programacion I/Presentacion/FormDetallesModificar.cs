@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tp_Programacion_I.Datos;
 using Tp_Programacion_I.Negocio;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace Tp_Programacion_I.Presentacion
@@ -170,7 +169,19 @@ namespace Tp_Programacion_I.Presentacion
             txtSupProy.Text = filaProyectos["superficie_proyecto"].ToString();
 
             dtpFinicio.Value = (DateTime)filaProyectos["fecha_inicio"];
-            dtpFfin.Value = (DateTime)filaProyectos["fecha_final"];
+            if (filaProyectos["fecha_final"] == DBNull.Value)
+            {
+                chboxHabFechaFinalEdit.Checked = false;
+                dtpFfin.Enabled = false;
+                // Opcional: puedes poner una fecha por defecto si quieres
+                // dtpFfin.Value = DateTime.Now;
+            }
+            else
+            {
+                chboxHabFechaFinalEdit.Checked = true;
+                dtpFfin.Enabled = true;
+                dtpFfin.Value = (DateTime)filaProyectos["fecha_final"];
+            }
             dtpFFinEst.Value = (DateTime)filaProyectos["fecha_estimada"];
 
             txtPrecio.Text = filaProyectos["precio_m_cuadrado"].ToString();
@@ -338,6 +349,32 @@ namespace Tp_Programacion_I.Presentacion
             conexion.Close();
 
             MessageBox.Show("Proyecto modificado correctamente.");
+        }
+
+        private void chboxHabFechaFinalEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpFfin.Enabled = chboxHabFechaFinalEdit.Checked;
+        }
+        private void soloNumerico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo números y la tecla de retroceso
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void soloNumericoyComas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == ',') && (txt.Text.Contains(",")))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

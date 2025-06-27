@@ -10,9 +10,9 @@ namespace Tp_Programacion_I.Datos
 {
     public class AccesoDatos
     {
-        public string CadenaConexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Grupo21_final;Integrated Security=True;";
-            // @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;"; //Local
-        // Conexión de Agus: @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
+        public string CadenaConexion = @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_Parte2;Integrated Security=True;";
+        // @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_Parte2;Integrated Security=True;"; //Local
+        // Conexión de Agus: @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_Parte2;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;

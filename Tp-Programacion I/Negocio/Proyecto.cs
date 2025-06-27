@@ -14,7 +14,7 @@ namespace Tp_Programacion_I.Negocio
         private int nroCatastral;
         private double supTerr;
         private DateTime fechaInicio;
-        private DateTime fechaFinal;
+        private DateTime? fechaFinal;
         private DateTime fechaEstimada;
         private UnidadMedida unidadMedida;
         private double supProy;
@@ -53,7 +53,7 @@ namespace Tp_Programacion_I.Negocio
             get { return fechaInicio; }
             set { fechaInicio = value; }
         }
-        public DateTime FechaFinal
+        public DateTime? FechaFinal
         {
             get { return fechaFinal; }
             set { fechaFinal = value; }
