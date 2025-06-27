@@ -10,7 +10,7 @@ namespace Tp_Programacion_I.Datos
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=False";
+        public string CadenaConexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Grupo21_final;Integrated Security=True;";
             // @"Data Source=DESKTOP-RUGFJ6S\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;"; //Local
         // Conexión de Agus: @"Data Source=ASUSVIVOBOOK\SQLEXPRESS;Initial Catalog=Grupo21_final;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
         private SqlConnection conexion;
@@ -100,6 +100,15 @@ namespace Tp_Programacion_I.Datos
             {
                 Desconectar();
             }
+        }
+        public int ActualizarBDChica(string consultaSQL)
+        {
+            int filasAfectadas = 0;
+            this.Conectar();
+            comando.CommandText = consultaSQL;
+            filasAfectadas = comando.ExecuteNonQuery();
+            this.Desconectar();
+            return filasAfectadas;
         }
 
         /*

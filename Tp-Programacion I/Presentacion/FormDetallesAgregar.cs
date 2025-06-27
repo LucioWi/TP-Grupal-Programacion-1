@@ -5,14 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tp_Programacion_I.Negocio;
 using Tp_Programacion_I.Datos;
+using Tp_Programacion_I.Negocio;
 
 namespace Tp_Programacion_I
 {
-    public partial class FormDetalles : Form
+    public partial class FormDetallesAgregar : Form
     {
         ProyectoServicio oServicio;
 
@@ -43,16 +44,12 @@ namespace Tp_Programacion_I
             };
         }
 
-        public FormDetalles()
+        public FormDetallesAgregar()
         {
             InitializeComponent();
             oServicio = new ProyectoServicio();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -142,13 +139,6 @@ namespace Tp_Programacion_I
             combo.SelectedIndex = -1;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
         
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -168,6 +158,43 @@ namespace Tp_Programacion_I
             else
             {
                 // Aquí puedes agregar la lógica para guardar el proyecto
+                try
+                {
+                    double nroCatastral = Convert.ToDouble(txtNroCatastral.Text);
+                    double supTerreno = Convert.ToDouble(txtSupTerreno.Text);
+                    double supProy = Convert.ToDouble(txtSupProy.Text);
+                    double precio = Convert.ToDouble(txtPrecio.Text);
+                    double altura = Convert.ToDouble(txtAltura.Text);
+                    double barrio = Convert.ToDouble(txtBarrio.Text);
+                    double provincia = Convert.ToDouble(txtProvincia.Text);
+                    double ciudad = Convert.ToDouble(txtCiudad.Text);
+
+                    // Por ejemplo, validar rango si querés:
+                    if (nroCatastral < int.MinValue || nroCatastral > int.MaxValue)
+                        throw new OverflowException("NroCatastral fuera de rango.");
+                    // Similar para los demás si es necesario
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Los campos NroCatastral, SupTerreno, SupProy, Precio, Altura, Barrio, Provincia y Ciudad deben contener números válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                catch (OverflowException)
+                {
+                    MessageBox.Show("Alguno de los campos NroCatastral, SupTerreno, SupProy, Precio, Altura, Barrio, Provincia o Ciudad es demasiado grande o pequeño.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                catch (ArithmeticException)
+                {
+                    MessageBox.Show("Error aritmético al procesar los campos NroCatastral, SupTerreno, SupProy, Precio, Altura, Barrio, Provincia o Ciudad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (dtpFinicio.Value >= dtpFFinEst.Value || dtpFinicio.Value >= dtpFfin.Value)
+                {
+                    MessageBox.Show("La fecha de inicio no puede ser mayor o igual que la fecha de fin estimada ni que la fecha de fin.", "Error de fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 InsertarDatos insertar = new InsertarDatos();
                 bool exito = insertar.InsertarNuevoProyecto(proyecto);
@@ -210,9 +237,5 @@ namespace Tp_Programacion_I
             cboSocios.SelectedIndex = -1;
         }
 
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

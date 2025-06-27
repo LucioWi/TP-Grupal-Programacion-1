@@ -14,6 +14,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tp_Programacion_I.Presentacion;
+using Tp_Programacion_I.Datos;
 
 namespace Tp_Programacion_I
 {
@@ -29,11 +31,6 @@ namespace Tp_Programacion_I
             oServicio = new ProyectoServicio();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnProySalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -41,10 +38,16 @@ namespace Tp_Programacion_I
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string nroCatastral = txtBuscar.Text.Trim();
+            bool esNumero = int.TryParse(nroCatastral, out int numero);
 
             if (string.IsNullOrWhiteSpace(nroCatastral))
             {
                 CargarProyectos(); // Si no se ingresa un número catastral, carga todos los proyectos
+                return;
+            }
+            if (esNumero == false)
+            {
+                MessageBox.Show("Numero catastral tiene que ser un numero", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -54,7 +57,7 @@ namespace Tp_Programacion_I
 
             if (resultado.Rows.Count == 0)
             {
-                MessageBox.Show("No se encontraron proyectos con el número catastral ingresado.");
+                MessageBox.Show("No se encontraron proyectos con el número catastral ingresado.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -88,9 +91,52 @@ namespace Tp_Programacion_I
             DgvProyectos.Columns[0].Visible = false;
         }
 
-        private void DgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Está seguro que quiere borrar el proyecto?",
+                                    "Confirmar borrado",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Warning);
+
+            DataGridViewRow filaSeleccionada = DgvProyectos.SelectedRows[0];
+            string numCatastral = filaSeleccionada.Cells["NroCatastral"].Value?.ToString();
+
+
+            string idProyecto = oServicio.TraerCodigoProyecto(numCatastral);
+
+
+            if (resultado == DialogResult.Yes)
+            {
+                try
+                {
+                    oServicio.BorrarProyecto(idProyecto);
+                    MessageBox.Show("Proyecto borrado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnBuscar.PerformClick();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al borrar el proyecto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (DgvProyectos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = DgvProyectos.SelectedRows[0];
+                string numCatastral = filaSeleccionada.Cells["NroCatastral"].Value?.ToString();
+
+                FormDetallesModificar fdm = new FormDetallesModificar(numCatastral);
+                fdm.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un proyecto primero", "Advertencia",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

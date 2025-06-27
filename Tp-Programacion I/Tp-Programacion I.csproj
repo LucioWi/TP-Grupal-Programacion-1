@@ -60,11 +60,17 @@
     <Compile Include="Negocio\TipoProyectos.cs" />
     <Compile Include="Negocio\UnidadMedida.cs" />
     <Compile Include="NuevoProyecto.cs" />
-    <Compile Include="Presentacion\FormDetalles.cs">
+    <Compile Include="Presentacion\FormDetallesModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FormDetalles.Designer.cs">
-      <DependentUpon>FormDetalles.cs</DependentUpon>
+    <Compile Include="Presentacion\FormDetallesModificar.Designer.cs">
+      <DependentUpon>FormDetallesModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FormDetallesAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FormDetallesAgregar.Designer.cs">
+      <DependentUpon>FormDetallesAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -86,8 +92,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentacion\FormDetalles.resx">
-      <DependentUpon>FormDetalles.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\FormDetallesModificar.resx">
+      <DependentUpon>FormDetallesModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FormDetallesAgregar.resx">
+      <DependentUpon>FormDetallesAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

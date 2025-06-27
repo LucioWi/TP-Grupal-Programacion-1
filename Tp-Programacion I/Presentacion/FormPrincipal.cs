@@ -39,7 +39,7 @@ namespace Tp_Programacion_I
 
         private void btnPpalAgregar_Click(object sender, EventArgs e)
         {
-            FormDetalles ventana = new FormDetalles();
+            FormDetallesAgregar ventana = new FormDetallesAgregar();
             ventana.ShowDialog();
         }
 

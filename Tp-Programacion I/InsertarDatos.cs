@@ -141,9 +141,46 @@ namespace Tp_Programacion_I
                 MessageBox.Show("Error al insertar el proyecto: " + ex.Message);
                 return false;
             }
+
         }
 
+        public void ActualizarProyecto()
+        {
+            string actualizarUbicacion = @"UPDATE ubicaciones
+                                        SET id_pais = @pais,
+                                            id_provincia = @provincia,
+                                            id_ciudad = @ciudad
+                                        WHERE id_ubicacion = @idUbicacion;";
 
+
+            string actualizarLocalizacion = @"UPDATE localizaciones
+                                        SET id_barrio = @idBarrio,
+                                            calle = @calle,
+                                            altura = @altura
+                                        WHERE id_localizacion = @idLocalizacion;";
+
+            string actualizarProyecto = @"UPDATE proyectos
+                                        SET id_localizacion = @idLocalizacion,
+                                            id_tipo_proyecto = @tipoProy,
+                                            nro_catastral = @nroCatastral,
+                                            id_unidad_medida = @unidadMedida,
+                                            superficie_terreno = @supTerreno,
+                                            superficie_proyecto = @supProyecto,
+                                            fecha_inicio = @fechaInicio,
+                                            fecha_final = @fechaFinal,
+                                            fecha_estimada = @fechaEstimada,
+                                            precio_m_cuadrado = @precio,
+                                            id_cliente = @cliente,
+                                            id_estado_proyecto = @estado,
+                                            id_etapa_proyecto = @etapa
+                                        WHERE id_proyecto = @idProyecto;";
+
+            string actualizarParticipacion = @"UPDATE participaciones_socios
+                                            SET id_socio = @idSocio
+                                            WHERE id_proyecto = @idProyecto;";
+
+
+        }
 
     }
 }

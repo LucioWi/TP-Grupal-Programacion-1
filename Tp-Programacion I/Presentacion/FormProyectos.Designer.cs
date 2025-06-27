@@ -33,7 +33,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.DgvProyectos = new System.Windows.Forms.DataGridView();
-            this.btnProySalir = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NroCatastral = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +40,9 @@
             this.FechaFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnProySalir = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProyectos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,32 +50,26 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(16, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 46);
+            this.label1.Size = new System.Drawing.Size(138, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Proyectos";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(575, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "_______________________________________________________________";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Size = new System.Drawing.Size(75, 19);
+            this.label2.TabIndex = 4;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(555, 121);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(416, 98);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(119, 38);
+            this.btnBuscar.Size = new System.Drawing.Size(89, 31);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -82,10 +78,9 @@
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(25, 126);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Location = new System.Drawing.Point(19, 102);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(492, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(370, 22);
             this.txtBuscar.TabIndex = 0;
             // 
             // DgvProyectos
@@ -101,25 +96,11 @@
             this.FechaFinal,
             this.Cliente,
             this.Estado});
-            this.DgvProyectos.Location = new System.Drawing.Point(13, 191);
-            this.DgvProyectos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DgvProyectos.Location = new System.Drawing.Point(10, 155);
             this.DgvProyectos.Name = "DgvProyectos";
             this.DgvProyectos.RowHeadersWidth = 51;
-            this.DgvProyectos.Size = new System.Drawing.Size(1069, 342);
+            this.DgvProyectos.Size = new System.Drawing.Size(802, 278);
             this.DgvProyectos.TabIndex = 2;
-            this.DgvProyectos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProyectos_CellContentClick);
-            // 
-            // btnProySalir
-            // 
-            this.btnProySalir.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProySalir.Location = new System.Drawing.Point(976, 591);
-            this.btnProySalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnProySalir.Name = "btnProySalir";
-            this.btnProySalir.Size = new System.Drawing.Size(119, 38);
-            this.btnProySalir.TabIndex = 3;
-            this.btnProySalir.Text = "Salir";
-            this.btnProySalir.UseVisualStyleBackColor = true;
-            this.btnProySalir.Click += new System.EventHandler(this.btnProySalir_Click);
             // 
             // Codigo
             // 
@@ -172,18 +153,52 @@
             this.Estado.Name = "Estado";
             this.Estado.Width = 125;
             // 
+            // btnProySalir
+            // 
+            this.btnProySalir.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProySalir.Location = new System.Drawing.Point(732, 480);
+            this.btnProySalir.Name = "btnProySalir";
+            this.btnProySalir.Size = new System.Drawing.Size(89, 31);
+            this.btnProySalir.TabIndex = 3;
+            this.btnProySalir.Text = "Salir";
+            this.btnProySalir.UseVisualStyleBackColor = true;
+            this.btnProySalir.Click += new System.EventHandler(this.btnProySalir_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(531, 98);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(89, 31);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(10, 480);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(89, 31);
+            this.btnBorrar.TabIndex = 6;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // FormProyectos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 644);
+            this.ClientSize = new System.Drawing.Size(845, 523);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnProySalir);
             this.Controls.Add(this.DgvProyectos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormProyectos";
             this.Text = "Proyectos";
             this.Load += new System.EventHandler(this.FormProyectos_Load);
@@ -208,5 +223,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }
